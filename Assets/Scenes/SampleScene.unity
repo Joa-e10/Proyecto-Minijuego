@@ -612,7 +612,6 @@ GameObject:
   - component: {fileID: 1284673914}
   - component: {fileID: 1284673913}
   - component: {fileID: 1284673912}
-  - component: {fileID: 1284673911}
   - component: {fileID: 1284673919}
   - component: {fileID: 1284673916}
   - component: {fileID: 1284673917}
@@ -624,31 +623,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!143 &1284673911
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284673910}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &1284673912
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -738,7 +712,7 @@ Transform:
   m_GameObject: {fileID: 1284673910}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.92389, y: 1.21, z: 17.20875}
+  m_LocalPosition: {x: 22.92389, y: 7.77, z: 17.20875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -758,6 +732,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   ShowTopMostFoldoutHeaderGroup: 1
   _playerInput: {fileID: 1284673917}
+  _rb: {fileID: 1284673918}
+  _JumpForce: 5
+  _layerGround:
+    serializedVersion: 2
+    m_Bits: 8
+  _rayCastHeight: 1
 --- !u!114 &1284673917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,7 +776,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284673910}
   serializedVersion: 5
-  m_Mass: 8
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -811,9 +791,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1284673919
 MonoBehaviour:
