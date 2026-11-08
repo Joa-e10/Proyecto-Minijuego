@@ -8,6 +8,21 @@ public class TimerManager : MonoBehaviour
     public bool _isReady;
 
     public static event Action OnResetSpawn;
+
+    private void OnEnable()
+    {
+        ConnectionHandler.OnStartGame += SetIsReady;
+    }
+
+    private void OnDisable()
+    {
+        ConnectionHandler.OnStartGame -= SetIsReady;
+    }
+
+    private void SetIsReady() 
+    {
+        _isReady = true;
+    }
     public void ResetTime()
     {
         if (_timer >= _intervals)
