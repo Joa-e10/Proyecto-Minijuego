@@ -6,12 +6,15 @@ using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
+    [SerializeField] GameObject _timerPrefab;
+
     [Header("GameObject UI")]
     [SerializeField] private GameObject _hostButtonObject;
     [SerializeField] private GameObject _clientButtonObject;
     [SerializeField] private GameObject _startButtonObject;
     [SerializeField] private GameObject _ipInputFieldObject;
     [SerializeField] private GameObject _waitingTextObject;
+
 
     [Header("Button UI")]
     [SerializeField] private Button _hostButton;
@@ -45,6 +48,9 @@ public class MainMenuUI : MonoBehaviour
     public void StartPlayerHost()
     {
         NetworkManager.Singleton.StartHost();
+
+        GameObject _timerSpawned = Instantiate(_timerPrefab);
+        _timerSpawned.GetComponent<NetworkObject>().Spawn();
     }
 
     public void ShowWaitingText() 

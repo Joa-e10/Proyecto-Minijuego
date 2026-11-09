@@ -2,26 +2,36 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class Spawners : MonoBehaviour
+public class Spawners : NetworkBehaviour
 {
     [SerializeField] private List<Transform> _listOfPositions = new List<Transform>();
     [SerializeField] private List<GameObject> _listOfPoints = new List<GameObject>();
     [SerializeField] private GameObject[] _listOfCurrentPoints = new GameObject[5];
+    private GameObject pointSpawned;
     public bool _inicializate;
     void Start()
     {
         
     }
 
+    void OnEnable()
+    {
+        ConnectionHandler.OnStartGame += SpawnPoints;
+    }
+
+    void OnDisable()
+    {
+        ConnectionHandler.OnStartGame -= SpawnPoints;
+    }
+
     private void Update()
     {
-        SpawnPoints();
+       //SpawnPoints();
     }
     private void SpawnPoints()
     {
-        if (_inicializate)
+        if (IsHost)
         {
-            _inicializate = false;
 
             for (int i = 0; i < _listOfCurrentPoints.Length; i++) 
             {
@@ -32,10 +42,18 @@ public class Spawners : MonoBehaviour
             int index = 0;
             foreach (GameObject point in _listOfCurrentPoints)
             {
-                GameObject pointSpawned = Instantiate(point, _listOfPositions[index].position, Quaternion.identity);
-                pointSpawned.GetComponent<NetworkObject>().Spawn();
+                pointSpawned = Instantiate(point, _listOfPositions[index].position, Quaternion.identity);
+                PointSpawn_ServerRpc();
                 index++;
+
+                Debug.Log("Objeto spawneado correctamente");
             }
         }
+    }
+
+    [ServerRpc]
+    private void PointSpawn_ServerRpc()
+    {
+        pointSpawned.GetComponent<NetworkObject>().Spawn();
     }
 }

@@ -7,6 +7,8 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private GameObject _panelMainMenu;
     [SerializeField] private GameObject _panelCrafting;
 
+    [SerializeField] private PanelHudUI _panelHudUI;
+
     void OnEnable()
     {
         ConnectionHandler.OnStartGame += StartGamePanels;
@@ -15,6 +17,11 @@ public class CanvasManager : MonoBehaviour
     void OnDisable()
     {
         ConnectionHandler.OnStartGame -= StartGamePanels;
+    }
+
+    public PanelHudUI GetPanelHud() 
+    {
+        return _panelHudUI;
     }
     public void StartGamePanels() 
     {

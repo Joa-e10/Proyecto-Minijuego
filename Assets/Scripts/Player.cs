@@ -17,10 +17,22 @@ public class Player : NetworkBehaviour
     public int _pointValue = 0;
     protected NetworkVariable<int> _totalPoints = new NetworkVariable<int>();
 
+    public int GetPointPlayer()
+    {
+        return _totalPoints.Value;
+    }
     public override void OnNetworkSpawn()
     {
-        _playerInput.enabled = IsOwner;
+        OwnerInitialized();
         _rb = GetComponent<Rigidbody>();
+    }
+
+    private void OwnerInitialized() 
+    {
+        if (IsOwner) 
+        {
+            _playerInput.enabled = true;
+        }
     }
 
     private void JumpCharacter() 
@@ -61,7 +73,7 @@ public class Player : NetworkBehaviour
     {
         if (inputValue.isPressed) 
         {
-            NetworkManager.Singleton.StartHost();
+            //NetworkManager.Singleton.StartHost();
         }
     }
 

@@ -8,12 +8,12 @@ public class Points : NetworkBehaviour
 
     void OnEnable()
     {
-        TimerManager.OnResetSpawn += PointDespawn;
+        TimerManager.OnResetSpawn += PointDespawn_ServerRpc;
     }
 
     private void OnDisable()
     {
-        TimerManager.OnResetSpawn -= PointDespawn;
+        TimerManager.OnResetSpawn -= PointDespawn_ServerRpc;
     }
     public override void OnNetworkSpawn()
     {
@@ -22,5 +22,11 @@ public class Points : NetworkBehaviour
     public void PointDespawn()
     {
        GetComponent<NetworkObject>().Despawn(true);
+    }
+
+    [ServerRpc]
+    private void PointDespawn_ServerRpc()
+    {
+        PointDespawn();
     }
 }

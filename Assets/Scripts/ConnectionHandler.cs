@@ -32,14 +32,6 @@ public class ConnectionHandler : MonoBehaviour
         {
             OnPlayersWaiting?.Invoke();
         }
-
-        foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
-        {
-            if (client.PlayerObject)
-            {
-                //_playerObject = client.PlayerObject;
-            }
-        }
     }
 
     public void OnClientDisconnected(ulong clientId)
@@ -49,6 +41,6 @@ public class ConnectionHandler : MonoBehaviour
 
     void Update()
     {
-        
+       
     }
 }
