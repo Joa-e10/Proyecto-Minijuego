@@ -23,6 +23,7 @@ public class Player : NetworkBehaviour
     private Vector3 _impulseJump;
     public override void OnNetworkSpawn()
     {
+        _playerInput.enabled = IsOwner;
         _rb = GetComponent<Rigidbody>();
         //_playerInput.enabled = IsOwner;
     }
