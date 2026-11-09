@@ -21,6 +21,6 @@ public class Points : NetworkBehaviour
     }
     public void PointDespawn()
     {
-       GetComponent<NetworkObject>().Despawn();
+       GetComponent<NetworkObject>().Despawn(true);
     }
 }

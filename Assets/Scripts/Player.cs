@@ -1,15 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Unity.Netcode;
-using Unity.Hierarchy;
-using Unity.Services.Multiplayer;
 
 public class Player : NetworkBehaviour
 {
-
-    void Start()
-    {
-    }
     protected RaycastHit _hit;
     [SerializeField] PlayerInput _playerInput;
     [SerializeField] Rigidbody _rb;
@@ -20,12 +14,13 @@ public class Player : NetworkBehaviour
     public float _rayCastHeight;
     //Character controller
     private float _speed = 5f;
-    private Vector3 _impulseJump;
+    public int _pointValue = 0;
+    protected NetworkVariable<int> _totalPoints = new NetworkVariable<int>();
+
     public override void OnNetworkSpawn()
     {
         _playerInput.enabled = IsOwner;
         _rb = GetComponent<Rigidbody>();
-        //_playerInput.enabled = IsOwner;
     }
 
     private void JumpCharacter() 
@@ -61,6 +56,31 @@ public class Player : NetworkBehaviour
             Vector2 move = inputValue.Get<Vector2>(); // Tomamos el valor recibido de la accion.
 
             _directionMove = new Vector3(move.x, 0, move.y);
+    }
+    private void OnAttack(InputValue inputValue) 
+    {
+        if (inputValue.isPressed) 
+        {
+            NetworkManager.Singleton.StartHost();
+        }
+    }
+
+    private void PointUpdate(int amount) 
+    {
+        _pointValue = _pointValue + amount;
+
+        _totalPoints.Value =+ _pointValue;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Points pointColision = other.GetComponent<Points>();
+
+        if (pointColision != null) 
+        {
+            PointUpdate(pointColision.amount);
+            pointColision.PointDespawn();
+        }
     }
 
     private void Update()

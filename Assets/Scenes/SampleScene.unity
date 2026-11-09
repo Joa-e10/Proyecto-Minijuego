@@ -1126,6 +1126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3641078966453577570, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7010380086772257173, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
       propertyPath: _panelHud
       value: 
