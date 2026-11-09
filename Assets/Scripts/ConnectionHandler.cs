@@ -20,16 +20,25 @@ public class ConnectionHandler : MonoBehaviour
     }
     private void OnClientConnected(ulong clientId)
     {
-        _currentPlayers++;
         Debug.Log("Se Conecto el jugador nro: " + clientId);
 
-        if (_currentPlayers >= _playerQuantity)
+        _currentPlayers++;
+
+        if (NetworkManager.Singleton.ConnectedClientsList.Count >= _playerQuantity)
         {
             OnStartGame?.Invoke();
         }
         else if (_currentPlayers == 1)
         {
             OnPlayersWaiting?.Invoke();
+        }
+
+        foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+        {
+            if (client.PlayerObject)
+            {
+                //_playerObject = client.PlayerObject;
+            }
         }
     }
 
