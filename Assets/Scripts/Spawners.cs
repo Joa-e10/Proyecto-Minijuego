@@ -17,11 +17,13 @@ public class Spawners : NetworkBehaviour
     void OnEnable()
     {
         ConnectionHandler.OnStartGame += SpawnPoints;
+        TimerManager.OnResetSpawn += SpawnPoints;
     }
 
     void OnDisable()
     {
         ConnectionHandler.OnStartGame -= SpawnPoints;
+        TimerManager.OnResetSpawn -= SpawnPoints;
     }
 
     private void Update()

@@ -17,6 +17,8 @@ public class Player : NetworkBehaviour
     public int _pointValue = 0;
     protected NetworkVariable<int> _totalPoints = new NetworkVariable<int>();
 
+    public Points pointColision;
+
     public int GetPointPlayer()
     {
         return _totalPoints.Value;
@@ -86,9 +88,14 @@ public class Player : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Points pointColision = other.GetComponent<Points>();
+        pointColision = other.GetComponent<Points>();
+        PointUpdate_ServerRpc();
+    }
 
-        if (pointColision != null) 
+    [ServerRpc]
+    private void PointUpdate_ServerRpc()
+    {
+        if (pointColision != null)
         {
             PointUpdate(pointColision.amount);
             pointColision.PointDespawn();
