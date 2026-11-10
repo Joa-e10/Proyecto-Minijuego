@@ -5,18 +5,20 @@ public class CanvasManager : MonoBehaviour
     [Header("Panels UI")]
     [SerializeField] private GameObject _panelHud;
     [SerializeField] private GameObject _panelMainMenu;
-    [SerializeField] private GameObject _panelCrafting;
+    [SerializeField] private GameObject _panelEnd;
 
     [SerializeField] private PanelHudUI _panelHudUI;
 
     void OnEnable()
     {
         ConnectionHandler.OnStartGame += StartGamePanels;
+        TimerManager.OnEndGame += StartEndGame;
     }
 
     void OnDisable()
     {
         ConnectionHandler.OnStartGame -= StartGamePanels;
+        TimerManager.OnEndGame -= StartEndGame;
     }
 
     public PanelHudUI GetPanelHud() 
@@ -29,6 +31,15 @@ public class CanvasManager : MonoBehaviour
         {
             _panelMainMenu.SetActive(false);
             _panelHud.SetActive(true);
+        }
+    }
+
+    public void StartEndGame() 
+    {
+        if (_panelHud.activeInHierarchy) 
+        {
+            _panelHud.SetActive(false);
+            _panelEnd.SetActive(true);
         }
     }
 

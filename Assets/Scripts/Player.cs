@@ -71,35 +71,34 @@ public class Player : NetworkBehaviour
 
             _directionMove = new Vector3(move.x, 0, move.y);
     }
-    private void OnAttack(InputValue inputValue) 
-    {
-        if (inputValue.isPressed) 
-        {
-            //NetworkManager.Singleton.StartHost();
-        }
-    }
 
     private void PointUpdate(int amount) 
     {
-        _pointValue = _pointValue + amount;
+            _pointValue = _pointValue + amount;
 
-        _totalPoints.Value =+ _pointValue;
+            _totalPoints.Value = +_pointValue;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        pointColision = other.GetComponent<Points>();
-        PointUpdate_ServerRpc();
+        if (!IsOwner) return;
+        NetworkObject pointObject = other.GetComponent<NetworkObject>();
+
+        if (pointObject != null)
+        {
+            PointUpdate_ServerRpc(new NetworkObjectReference(pointObject));
+        }
     }
 
     [ServerRpc]
-    private void PointUpdate_ServerRpc()
+    private void PointUpdate_ServerRpc(NetworkObjectReference newPoint)
     {
-        if (pointColision != null)
-        {
-            PointUpdate(pointColision.amount);
-            pointColision.PointDespawn();
-        }
+        if (!newPoint.TryGet(out NetworkObject pointObject)) return;
+
+        if (!pointObject.TryGetComponent<Points>(out Points point)) return;
+
+        PointUpdate(point.amount);
+       point.PointDespawn();
     }
 
     private void Update()

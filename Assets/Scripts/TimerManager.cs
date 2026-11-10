@@ -11,6 +11,7 @@ public class TimerManager : NetworkBehaviour
     public PanelHudUI _panelHud;
 
     public static event Action OnResetSpawn;
+    public static event Action OnEndGame;
 
     public override void OnNetworkSpawn()
     {
@@ -49,12 +50,27 @@ public class TimerManager : NetworkBehaviour
            OnResetSpawn?.Invoke();
        }
     }
+
+    public void EndTime() 
+    {
+        OnEndGame?.Invoke();
+        this.GetComponent<NetworkObject>().Despawn();
+    }
     void Update()
     {
-        //Debug.Log("Timer: "+_timer);
         if (!IsHost) return;
         if (!_isReady) return;
-        _timer.Value -= Time.deltaTime;
-        ResetTime();
+
+        if (_timer.Value >= 0)
+        {
+            _timer.Value -= Time.deltaTime;
+            ResetTime();
+        }
+        else 
+        {
+            _timer.Value = 0;
+
+            EndTime();
+        }
     }
 }

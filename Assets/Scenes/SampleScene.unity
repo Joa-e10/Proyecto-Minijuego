@@ -1022,9 +1022,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2755172304136284721, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3641078966453577570, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
       propertyPath: m_Name
       value: CanvasManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692345515483154323, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7345940634578083297, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
       propertyPath: m_Pivot.x
