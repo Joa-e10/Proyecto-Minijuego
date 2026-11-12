@@ -100,11 +100,17 @@ public class Player : NetworkBehaviour
             _directionMove = new Vector3(move.x, 0, move.y);
     }
 
-    private void PointUpdate(int amount) 
+    private void PointUpdate(int amount, string nameTag) 
     {
-            _pointValue = _pointValue + amount;
-
-            _totalPoints.Value = +_pointValue;
+        if (nameTag == "Positive")
+        {
+            Debug.Log("Tag: "+nameTag);
+            _totalPoints.Value = _totalPoints.Value + amount;
+        }
+        else 
+        {
+            _totalPoints.Value = _totalPoints.Value - amount;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -125,7 +131,7 @@ public class Player : NetworkBehaviour
 
         if (!pointObject.TryGetComponent<Points>(out Points point)) return;
 
-        PointUpdate(point.amount);
+        PointUpdate(point.amount, point.tag);
        point.PointDespawn();
     }
 

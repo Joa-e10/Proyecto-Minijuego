@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5645515743265367814}
   - component: {fileID: 7761266799735724254}
   - component: {fileID: 7418724594065065380}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RedPoint
-  m_TagString: Untagged
+  m_TagString: Negative
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

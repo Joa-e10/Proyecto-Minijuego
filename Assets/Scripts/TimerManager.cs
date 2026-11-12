@@ -11,7 +11,6 @@ public class TimerManager : NetworkBehaviour
     public PanelHudUI _panelHud;
 
     public static event Action OnResetSpawn;
-    public static event Action OnEndGame;
 
     public override void OnNetworkSpawn()
     {

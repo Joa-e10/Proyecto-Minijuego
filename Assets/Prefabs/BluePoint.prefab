@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 4181982921058575091}
   - component: {fileID: 3075214142065096527}
   - component: {fileID: 8970472884522728351}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BluePoint
-  m_TagString: Untagged
+  m_TagString: Positive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

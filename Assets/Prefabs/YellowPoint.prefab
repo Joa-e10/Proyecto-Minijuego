@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 472783061730510258}
   - component: {fileID: 24347346739390359}
   - component: {fileID: 6234375875279309402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: YellowPoint
-  m_TagString: Untagged
+  m_TagString: Positive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
