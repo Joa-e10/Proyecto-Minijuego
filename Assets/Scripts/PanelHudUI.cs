@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class PanelHudUI : MonoBehaviour
 
     private Player _playerObject;
 
+    public static event Action OnEndGame;
     public void SetTimerReference(TimerManager _actuallyTimer) 
     {
         _timerManager = _actuallyTimer;
@@ -39,6 +41,11 @@ public class PanelHudUI : MonoBehaviour
         if (_timerManager == null) return;
         Debug.Log("Estamos actualizando la wea");
         _timerText.text = _timerManager.GetTimer().ToString("F1");
+        if (_timerManager.GetTimer() <= 0) 
+        {
+            Debug.Log("Tenemos el fin");
+            OnEndGame?.Invoke();
+        }
     }
 
     void Update()

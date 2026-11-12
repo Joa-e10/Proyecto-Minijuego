@@ -1,6 +1,7 @@
 using UnityEngine;
-
-public class CanvasManager : MonoBehaviour
+using Unity.Netcode;
+using UnityEngine.SceneManagement;
+public class CanvasManager : NetworkBehaviour
 {
     [Header("Panels UI")]
     [SerializeField] private GameObject _panelHud;
@@ -9,16 +10,18 @@ public class CanvasManager : MonoBehaviour
 
     [SerializeField] private PanelHudUI _panelHudUI;
 
+    [SerializeField] GameObject _timerPrefab;
+
     void OnEnable()
     {
         ConnectionHandler.OnStartGame += StartGamePanels;
-        TimerManager.OnEndGame += StartEndGame;
+        PanelHudUI.OnEndGame += StartEndGame;
     }
 
     void OnDisable()
     {
         ConnectionHandler.OnStartGame -= StartGamePanels;
-        TimerManager.OnEndGame -= StartEndGame;
+        PanelHudUI.OnEndGame -= StartEndGame;
     }
 
     public PanelHudUI GetPanelHud() 
@@ -36,11 +39,33 @@ public class CanvasManager : MonoBehaviour
 
     public void StartEndGame() 
     {
-        if (_panelHud.activeInHierarchy) 
-        {
             _panelHud.SetActive(false);
             _panelEnd.SetActive(true);
+    }
+
+    public void StartRetryGame() 
+    {
+        if (_panelEnd.activeInHierarchy)
+        {
+            _panelHud.SetActive(true);
+            _panelEnd.SetActive(false);
         }
+    }
+
+    public void RetryGame() 
+    {
+        StartRetryGame();
+
+            GameObject _timerSpawned = Instantiate(_timerPrefab);
+            _timerSpawned.GetComponent<NetworkObject>().Spawn();
+
+    }
+
+    public void ReloadScene()
+    {
+        NetworkManager.Singleton.Shutdown();
+        SceneManager.LoadScene("SampleScene");
+        Debug.Log("Cargamos una nueva scene");
     }
 
     void Update()

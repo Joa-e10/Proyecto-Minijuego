@@ -53,7 +53,6 @@ public class TimerManager : NetworkBehaviour
 
     public void EndTime() 
     {
-        OnEndGame?.Invoke();
         this.GetComponent<NetworkObject>().Despawn();
     }
     void Update()
@@ -69,8 +68,7 @@ public class TimerManager : NetworkBehaviour
         else 
         {
             _timer.Value = 0;
-
-            EndTime();
+            //EndTime();
         }
     }
 }

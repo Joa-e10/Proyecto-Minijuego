@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Unity.Netcode;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 public class Player : NetworkBehaviour
 {
@@ -16,24 +18,50 @@ public class Player : NetworkBehaviour
     private float _speed = 5f;
     public int _pointValue = 0;
     protected NetworkVariable<int> _totalPoints = new NetworkVariable<int>();
+    [SerializeField] private List<Transform> _SpawnsPlayer = new List<Transform>();
 
     public Points pointColision;
+    private bool _playAgain;
 
+    public bool GetPlayAgain()
+    {
+        return _playAgain;
+    }
+    public void SetPlayAgain()
+    {
+         _playAgain = true;
+    }
     public int GetPointPlayer()
     {
         return _totalPoints.Value;
     }
     public override void OnNetworkSpawn()
     {
+
         OwnerInitialized();
         _rb = GetComponent<Rigidbody>();
     }
 
-    private void OwnerInitialized() 
+    private void OwnerInitialized()
     {
-        if (IsOwner) 
+        if (IsOwner)
         {
             _playerInput.enabled = true;
+        }
+
+        if (IsServer && IsOwner)
+        {
+            Transform spawn = GameObject.Find("PositionPlayer").GetComponent<Transform>();
+
+            if (spawn != null)
+                transform.position = spawn.position;
+        }
+        else if (IsOwner)
+        {
+            Transform spawn = GameObject.Find("PositionClient").GetComponent<Transform>();
+
+            if (spawn != null)
+                transform.position = spawn.position;
         }
     }
 

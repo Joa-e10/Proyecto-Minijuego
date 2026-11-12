@@ -22,10 +22,6 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Button _startButton;
 
     [SerializeField] private TMP_InputField _ipInputField;
-    void Start()
-    {
-        
-    }
 
     void OnEnable()
     {
