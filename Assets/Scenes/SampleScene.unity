@@ -802,13 +802,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781060858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18769607, y: -0.6861152, z: 0.19022752, w: 0.6766311}
-  m_LocalPosition: {x: 47.18, y: 15.42, z: 21.53}
+  m_LocalRotation: {x: 0.0021297967, y: -0.7419724, z: 0.67042524, w: 0.0015678557}
+  m_LocalPosition: {x: 19.82, y: 28.27, z: 23.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 31, y: -90.8, z: -0.009}
+  m_LocalEulerAnglesHint: {x: 84.2, y: -180.3, z: -0.6}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,17 +858,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &873962430 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5334521965126083721, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-  m_PrefabInstance: {fileID: 5156370732562252698}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1064275094
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,17 +970,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 3.167, y: 0, z: 0}
---- !u!114 &1132125244 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4411266633309369339, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-  m_PrefabInstance: {fileID: 5156370732562252698}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!4 &1160854437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2178107584040240771, guid: e79e8bc1dc9d9b0408a45c6addab274e, type: 3}
@@ -1086,6 +1064,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b3aded0f430e044a52ee132430711a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConnectionHandler
+  ShowTopMostFoldoutHeaderGroup: 1
+  _listOfColors:
+  - {r: 0.9607844, g: 0.9607844, b: 0.8627452, a: 1}
+  - {r: 0.4980392, g: 1, b: 0.8313726, a: 1}
 --- !u!114 &1176075279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1117,28 +1099,6 @@ MonoBehaviour:
     PacketDelayMS: 0
     PacketJitterMS: 0
     PacketDropRate: 0
---- !u!114 &1315993907 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9147402720073089035, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-  m_PrefabInstance: {fileID: 5156370732562252698}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!114 &1375076030 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7010380086772257173, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-  m_PrefabInstance: {fileID: 5156370732562252698}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d4aebec28fd8b548b2ad811b1860c37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CanvasManager
 --- !u!1 &1436943653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,17 +1380,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79e8bc1dc9d9b0408a45c6addab274e, type: 3}
---- !u!114 &1752845104 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 301390386791630571, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-  m_PrefabInstance: {fileID: 5156370732562252698}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1768999192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1806,45 +1755,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1524875482182177791, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-      propertyPath: _retryButton
-      value: 
-      objectReference: {fileID: 873962430}
-    - target: {fileID: 1524875482182177791, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-      propertyPath: _canvasManager
-      value: 
-      objectReference: {fileID: 1375076030}
-    - target: {fileID: 1524875482182177791, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-      propertyPath: _mainMenuButton
-      value: 
-      objectReference: {fileID: 1132125244}
-    - target: {fileID: 1524875482182177791, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-      propertyPath: _QuantityClients
-      value: 
-      objectReference: {fileID: 1752845104}
-    - target: {fileID: 1524875482182177791, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-      propertyPath: _RequiredClients
-      value: 
-      objectReference: {fileID: 1315993907}
-    - target: {fileID: 1524875482182177791, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-      propertyPath: _quantityClients
-      value: 
-      objectReference: {fileID: 1752845104}
-    - target: {fileID: 1524875482182177791, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-      propertyPath: _requiredClients
-      value: 
-      objectReference: {fileID: 1315993907}
     - target: {fileID: 3641078966453577570, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
       propertyPath: m_Name
       value: CanvasManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3641078966453577570, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6936261109257704863, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
-      propertyPath: m_Name
-      value: MainMenuButton
       objectReference: {fileID: 0}
     - target: {fileID: 7345940634578083297, guid: 63bc392bb4360c14781a0880c391de67, type: 3}
       propertyPath: m_Pivot.x

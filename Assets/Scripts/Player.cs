@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Unity.Netcode;
-using NUnit.Framework;
-using System.Collections.Generic;
 
 public class Player : NetworkBehaviour
 {
@@ -18,7 +16,6 @@ public class Player : NetworkBehaviour
     private float _speed = 5f;
     public int _pointValue = 0;
     protected NetworkVariable<int> _totalPoints = new NetworkVariable<int>();
-    [SerializeField] Camera _camera;
 
     public Points pointColision;
     private bool _playAgain;
@@ -47,7 +44,6 @@ public class Player : NetworkBehaviour
         if (IsOwner)
         {
             _playerInput.enabled = true;
-            _camera.enabled = true;
         }
 
         if (IsServer && IsOwner)

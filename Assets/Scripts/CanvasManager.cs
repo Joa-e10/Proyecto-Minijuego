@@ -1,7 +1,7 @@
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.SceneManagement;
-public class CanvasManager : NetworkBehaviour
+public class CanvasManager : MonoBehaviour
 {
     [Header("Panels UI")]
     [SerializeField] private GameObject _panelHud;

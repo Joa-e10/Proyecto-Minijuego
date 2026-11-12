@@ -1,11 +1,7 @@
 using System;
 using TMPro;
-using Unity.Multiplayer.PlayMode;
 using Unity.Netcode;
-using Unity.Services.Qos.V2.Models;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PanelEndUI : MonoBehaviour
@@ -22,6 +18,8 @@ public class PanelEndUI : MonoBehaviour
 
     private Player _playerObject;
     private int _quantityPlayer = 0;
+    private int _pointsOwner = 0;
+    private int _pointsClient = 0;
 
     public static event Action OnRetryGame;
 
@@ -29,11 +27,13 @@ public class PanelEndUI : MonoBehaviour
     {
         _retryButton.onClick.AddListener(RetryGame);
         _mainMenuButton.onClick.AddListener(ReturnMainMenu);
+
+        PanelHudUI.OnEndGame += WinnerTextUpdate;
     }
 
     void OnDisable()
     {
-        //_mainMenuButton.onClick.RemoveListener();
+        PanelHudUI.OnEndGame += WinnerTextUpdate;
     }
 
     public void RetryGame() 
@@ -73,6 +73,33 @@ public class PanelEndUI : MonoBehaviour
         }
 
         _retryButton.onClick.RemoveListener(RetryGame);
+    }
+
+    private void WinnerTextUpdate() 
+    {
+        foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+        {
+            if (client.PlayerObject.IsOwner)
+            {
+                _playerObject = client.PlayerObject.GetComponent<Player>();
+                _pointsOwner = _playerObject.GetPointPlayer();
+            }
+            else 
+            {
+                _playerObject = client.PlayerObject.GetComponent<Player>();
+                _pointsClient = _playerObject.GetPointPlayer();
+            }
+        }
+
+        if (_pointsClient <= _pointsOwner)
+        {
+            _winnerText.text = "You Win";
+        }
+        else 
+        {
+            _winnerText.text = "You Lose";
+        }
+
     }
 
     public void ReturnMainMenu() 

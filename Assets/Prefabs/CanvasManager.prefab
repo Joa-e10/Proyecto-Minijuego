@@ -95,6 +95,7 @@ MonoBehaviour:
   _panelMainMenu: {fileID: 3692345515483154323}
   _panelEnd: {fileID: 2755172304136284721}
   _panelHudUI: {fileID: 5249582144511592560}
+  _timerPrefab: {fileID: 0}
 --- !u!1 &3641078966453577570
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +412,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7279338573161366108}
     m_Modifications:
+    - target: {fileID: 2940725681572037007, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+      propertyPath: m_Name
+      value: MainMenuButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807342100207792470, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807342100207792470, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807342100207792470, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807342100207792470, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 281
+      objectReference: {fileID: 0}
+    - target: {fileID: 6747642367789631471, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+      propertyPath: _winnerText
+      value: 
+      objectReference: {fileID: 8393027743278597783}
+    - target: {fileID: 6747642367789631471, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+      propertyPath: _canvasManager
+      value: 
+      objectReference: {fileID: 7010380086772257173}
+    - target: {fileID: 6747642367789631471, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+      propertyPath: _mainMenuButton
+      value: 
+      objectReference: {fileID: 4411266633309369339}
     - target: {fileID: 7976249097530670625, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
       propertyPath: m_Name
       value: EndGame_PanelUI
@@ -500,7 +533,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6402645893951761209, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+    - {fileID: 6394900248025648268, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+    - {fileID: 2142607127470814803, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+    - {fileID: 5594044523911424661, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+    - {fileID: 7973848198820715562, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+    - {fileID: 9186908213587862964, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
@@ -514,6 +553,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8705678750887695558, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
   m_PrefabInstance: {fileID: 5227837867594732560}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4411266633309369339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8483362736043059179, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+  m_PrefabInstance: {fileID: 5227837867594732560}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &8393027743278597783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4392984995448181383, guid: ed39c6ce19f06f2488ba027cdb887a62, type: 3}
+  m_PrefabInstance: {fileID: 5227837867594732560}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &8099692037530214237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -529,6 +590,12 @@ PrefabInstance:
     - target: {fileID: 4853255666022553806, guid: 2f353099c4f806b4b826ea0690f3c994, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905637225795472435, guid: 2f353099c4f806b4b826ea0690f3c994, type: 3}
+      propertyPath: m_text
+      value: 'Minijuego
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 8837806686819298966, guid: 2f353099c4f806b4b826ea0690f3c994, type: 3}
       propertyPath: m_Pivot.x
