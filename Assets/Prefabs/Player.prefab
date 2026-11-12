@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 4170799635
+  GlobalObjectIdHash: 9906759
   InScenePlacedSourceGlobalObjectIdHash: 1738961727
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -167,9 +167,7 @@ MonoBehaviour:
     m_Bits: 8
   _rayCastHeight: 1
   _pointValue: 0
-  _SpawnsPlayer:
-  - {fileID: 0}
-  - {fileID: 0}
+  _camera: {fileID: 0}
   pointColision: {fileID: 0}
 --- !u!114 &2954015457635508013
 MonoBehaviour:
